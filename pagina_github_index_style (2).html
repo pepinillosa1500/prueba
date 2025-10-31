@@ -1,0 +1,48 @@
+<!-- index.html -->
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Mi página con fondo negro</title>
+  <!-- Este archivo conecta con el estilo visual -->
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <!-- Título principal -->
+  <h1>Bienvenido a mi página</h1>
+
+  <!-- Texto de ejemplo -->
+  <p>Esta página tiene un fondo negro con puntos blancos y texto en color blanco.</p>
+
+  <!-- Enlace para ver tu CV -->
+  <a href="CV Felix R July 2024.pdf" target="_blank">Ver mi CV</a>
+</body>
+</html>
+
+
+/* style.css */
+/* Este archivo define cómo se ve la página */
+
+/* El cuerpo (body) es todo el fondo de la página */
+body {
+  background-color: black; /* color de fondo negro */
+  color: white; /* color del texto blanco */
+  font-family: Arial, sans-serif; /* tipo de letra simple */
+  text-align: center; /* centrar el texto */
+  padding: 40px; /* espacio interno */
+
+  /* Fondo con puntos blancos */
+  background-image: radial-gradient(white 1px, transparent 1px);
+  background-size: 25px 25px; /* tamaño de los puntos */
+}
+
+a {
+  color: lightblue; /* color del enlace */
+  text-decoration: none; /* sin subrayado */
+  font-size: 18px;
+}
+
+a:hover {
+  text-decoration: underline; /* subrayado al pasar el mouse */
+}
