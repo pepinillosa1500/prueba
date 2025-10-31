@@ -1,0 +1,136 @@
+<!--
+Archivos incluidos en este documento:
+  1) index.html -> copia y guarda como `index.html`
+  2) style.css  -> copia y guarda como `style.css`
+  3) carpeta `images/` -> pon ahí tus imágenes (ej: profile.jpg)
+  4) coloca el PDF `CV Felix R July 2024.pdf` en la misma carpeta que index.html
+
+Instrucciones rápidas:
+ - Guarda los dos archivos en la misma carpeta.
+ - Abre `index.html` en tu navegador.
+ - Si subes a GitHub Pages, sube la carpeta entera a un repositorio y activa Pages apuntando a la rama `main` (o `gh-pages`).
+-->
+
+<!-- ==================== index.html ==================== -->
+<!doctype html>
+<html lang="es">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width,initial-scale=1">
+  <title>Página de prueba - Fondo negro con puntos blancos</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <header class="site-header">
+    <h1>Hola — Página de prueba</h1>
+    <p class="subtitle">Fondo negro con puntos blancos · Ejemplo con enlace a tu CV y zona de imágenes</p>
+    <nav class="nav">
+      <a href="CV Felix R July 2024.pdf" target="_blank" rel="noopener">Ver mi CV (PDF)</a>
+      <a href="#imagenes">Galería</a>
+      <a href="#contacto">Contacto</a>
+    </nav>
+  </header>
+
+  <main class="content">
+    <section class="hero">
+      <div class="card">
+        <h2>Bienvenido</h2>
+        <p>Este es un ejemplo minimalista con un fondo negro y puntos blancos. Puedes reemplazar las imágenes en la carpeta <code>images/</code> y el PDF del CV.</p>
+        <p><a class="btn" href="CV Felix R July 2024.pdf" target="_blank" rel="noopener">Descargar CV</a></p>
+      </div>
+    </section>
+
+    <section id="imagenes" class="imagenes">
+      <h3>Galería</h3>
+      <div class="grid">
+        <!-- Reemplaza las imágenes por las tuyas en images/ -->
+        <figure>
+          <img src="images/profile.jpg" alt="Imagen de ejemplo" onerror="this.style.display='none'">
+          <figcaption>Profile.jpg (pon tu imagen aquí)</figcaption>
+        </figure>
+        <figure>
+          <img src="images/sample-1.jpg" alt="Imagen 2" onerror="this.style.display='none'">
+          <figcaption>sample-1.jpg</figcaption>
+        </figure>
+      </div>
+    </section>
+
+    <section id="contacto" class="contacto">
+      <h3>Contacto</h3>
+      <p>Correo: <a href="mailto:tu@correo.com">tu@correo.com</a></p>
+    </section>
+  </main>
+
+  <footer class="site-footer">
+    <p>Hecho con ❤️ — Ejemplo generado automáticamente</p>
+  </footer>
+
+</body>
+</html>
+
+
+<!-- ==================== style.css ==================== -->
+/* Guarda esto como style.css en la misma carpeta que index.html */
+:root{
+  --bg:#000; /* fondo negro */
+  --card-bg: rgba(255,255,255,0.03);
+  --glass: rgba(255,255,255,0.04);
+  --text: #ffffff;
+}
+
+/* Fondo con puntos blancos: usamos repeating-radial-gradient para puntos regulares */
+html,body{height:100%;}
+body{
+  margin:0;
+  font-family:Inter, system-ui, -apple-system, "Segoe UI", Roboto, "Helvetica Neue", Arial;
+  background: var(--bg);
+  color:var(--text);
+  /* tamaño y densidad de puntos: ajusta background-size para cambiar el espaciado */
+  background-image: repeating-radial-gradient(circle at 1px 1px, rgba(255,255,255,0.9) 0, rgba(255,255,255,0.9) 1px, transparent 1px);
+  background-size: 20px 20px; /* cada 20px habrá un punto */
+  -webkit-font-smoothing:antialiased;
+  -moz-osx-font-smoothing:grayscale;
+}
+
+/* Opcional: animación sutil de desplazamiento para que los puntos parezcan moverse */
+@keyframes drift {
+  from{background-position:0 0}
+  to{background-position:200px 200px}
+}
+body{
+  animation: drift 120s linear infinite;
+}
+
+.site-header{
+  text-align:center;
+  padding:3rem 1rem 1rem 1rem;
+}
+.site-header h1{
+  margin:0 0 .25rem 0;
+  font-size:2rem;
+}
+.subtitle{opacity:0.8; margin:0 0 1rem 0}
+.nav{display:flex; gap:1rem; justify-content:center; flex-wrap:wrap}
+.nav a{color:var(--text); text-decoration:none; background:var(--glass); padding:.35rem .6rem; border-radius:.5rem; font-size:.9rem}
+
+.content{max-width:1000px; margin:2rem auto; padding:0 1rem 3rem}
+.hero{display:flex; justify-content:center}
+.card{background:var(--card-bg); border:1px solid rgba(255,255,255,0.04); padding:1.25rem; border-radius:12px; max-width:720px}
+.card h2{margin-top:0}
+.btn{display:inline-block; margin-top:.5rem; padding:.5rem .8rem; background:transparent; border:1px solid rgba(255,255,255,0.12); color:var(--text); border-radius:8px; text-decoration:none}
+
+.imagenes{margin-top:2rem}
+.grid{display:grid; grid-template-columns:repeat(auto-fit,minmax(180px,1fr)); gap:1rem}
+figure{background:rgba(255,255,255,0.02); padding:.5rem; border-radius:8px; text-align:center}
+figure img{max-width:100%; height:160px; object-fit:cover; border-radius:6px}
+figcaption{font-size:.85rem; opacity:.9; margin-top:.5rem}
+
+.contacto{margin-top:2rem; padding:1rem; background:rgba(255,255,255,0.01); border-radius:8px}
+
+.site-footer{opacity:.8; text-align:center; padding:2rem 1rem 3rem 1rem}
+
+/* Responsive tweaks */
+@media (max-width:520px){
+  .site-header h1{font-size:1.4rem}
+  .card{padding:1rem}
+}
